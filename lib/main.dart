@@ -7,8 +7,10 @@ void main()  {
       home: Scaffold (
         appBar: AppBar(
           title: Text("A+ Grocery Inventory Manager"),
+          centerTitle: true,
         ),
         body: const HomeScreen(),
+          
       )
     )
   );
