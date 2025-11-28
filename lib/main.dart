@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'screens/home_screen.dart';
 
 void main()  {
   runApp (
-    MaterialApp(
+    GetMaterialApp(
       home: Scaffold (
         appBar: AppBar(
           title: Text("A+ Grocery Inventory Manager"),

@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-//import 'package:get/get.dart';
+import 'package:grocery_manager/screens/add_item_screen.dart';
+import 'package:grocery_manager/screens/inventory_screen.dart';
+import 'package:get/get.dart';
+//import 'screens/add_item_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen ({super.key});
+   const HomeScreen ({super.key});
 
   @override
   Widget build(BuildContext context) {
   
+   final List<String> myItems = ['Apple', 'Bread', 'Milk'];
+   
     return Center(
       child: Column (
         mainAxisSize: MainAxisSize.min,
@@ -18,10 +23,22 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height:40), //spacing
 
           ElevatedButton(
-            onPressed: () {},
-            child: Text("Restock"), //Go to EditScreen
-          )
-          ]
+            onPressed: () {
+              Get.to(() => AddItemScreen());
+            },
+            child: Text("Add New Item"), //Go to EditScreen
+          ),
+
+          SizedBox(height:20), //spacing
+
+         
+          ElevatedButton(
+            onPressed: () {
+              Get.to(() => InventoryScreen(items: myItems));
+            },
+            child: Text("View All Items"), //Go to InventoryScreen
+          ),
+        ]
       )
     );
   }
