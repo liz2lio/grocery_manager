@@ -2,36 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 //import 'package:flutter_form_validators/flutter_form_validators.dart';
 import 'package:get/get.dart';
+import '../controllers/add_item_controller.dart';
 //import 'item_card.dart'; //move this line at the viewscreen
 
 // ---------AddEntryScreen-----------------
 class AddItemScreen extends StatelessWidget {
+    AddItemScreen ({super.key}); 
 
     static final _formKey = GlobalKey<FormBuilderState>();
-    //final controller = Get.find<GratefulController>();
-    //final controller = Get.find<InventoryController>(); 
-    //final service = Get.find<InventroyService>();
-    //AddItemScreen ({super.key}); //move
-
-      //@override
-      //State<AddItemScreen> createState() => _AddItemScreenState();
+    final AddItemController controller = Get.find();
     
-
     void _submit() {
         if (_formKey.currentState!.saveAndValidate()) {
-            final newValue = _formKey.currentState?.value['item_name'] ?? '';
-            //controller.addNewItem(newValue);
-            print("New item: $newValue");
+            //final String newValue = _formKey.currentState?.value['item_name'] ?? '';
+            //final int newQty = _formKey.currentState?.value['item_qty'] ?? '';
+            final formData = _formKey.currentState!.value;
+
+            final String newItem = formData['item_name'];
+            final int newQty = int.parse(formData['quantity']);
+
+            controller.addNewItem(newItem, newQty);
+
             Get.back();
         } else {
-          print("Validation Failed");
+          debugPrint("Validation Failed");
         }
-        }
-
-
-
-
-
+      }
     @override
     Widget build(BuildContext context) {
         return Scaffold(

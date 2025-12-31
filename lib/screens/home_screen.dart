@@ -10,7 +10,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   
-   final List<String> myItems = ['Apple', 'Bread', 'Milk'];
+   //final List<String> myItems = ['Apple', 'Bread', 'Milk'];
+   //final List<String> myItems = [];
    
     return Center(
       child: Column (
@@ -26,7 +27,7 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               Get.to(() => AddItemScreen());
             },
-            child: Text("Add New Item"), //Go to EditScreen
+            child: Text("Add New Item"), //Go to add_item_screen
           ),
 
           SizedBox(height:20), //spacing
@@ -34,7 +35,7 @@ class HomeScreen extends StatelessWidget {
          
           ElevatedButton(
             onPressed: () {
-              Get.to(() => InventoryScreen(items: myItems));
+              Get.to(() => InventoryScreen());
             },
             child: Text("View All Items"), //Go to InventoryScreen
           ),
