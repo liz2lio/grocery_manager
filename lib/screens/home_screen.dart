@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_manager/screens/add_item_screen.dart';
-import 'package:grocery_manager/screens/inventory_screen.dart';
+//import 'package:grocery_manager/screens/add_item_screen.dart';
+//import 'package:grocery_manager/screens/inventory_screen.dart';
 import 'package:get/get.dart';
-//import 'screens/add_item_screen.dart';
+import '/screens/add_item_screen.dart';
+//import 'screens/add_screen.dart';
 
 class HomeScreen extends StatelessWidget {
    const HomeScreen ({super.key});
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height:40), //spacing
 
           ElevatedButton(
-            onPressed: () {
+            onPressed: () { 
               Get.to(() => AddItemScreen());
             },
             child: Text("Add New Item"), //Go to add_item_screen
@@ -34,8 +35,8 @@ class HomeScreen extends StatelessWidget {
 
          
           ElevatedButton(
-            onPressed: () {
-              Get.to(() => InventoryScreen());
+            onPressed: () { 
+              //Get.to(() => InventoryScreen());
             },
             child: Text("View All Items"), //Go to InventoryScreen
           ),
