@@ -1,8 +1,8 @@
-class InventoryItem {
+class GroceryItem {
   final String name;
   int quantity;
 
-  InventoryItem ({
+  GroceryItem ({
     required this.name,
     required this.quantity,
    }

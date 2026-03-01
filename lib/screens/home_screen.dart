@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 //import 'package:grocery_manager/screens/add_item_screen.dart';
-//import 'package:grocery_manager/screens/inventory_screen.dart';
+import 'inventory_screen.dart';
 import 'package:get/get.dart';
-import '/screens/add_item_screen.dart';
+import 'add_item_screen.dart';
 //import 'screens/add_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
          
           ElevatedButton(
             onPressed: () { 
-              //Get.to(() => InventoryScreen());
+              Get.to(() => InventoryScreen());
             },
             child: Text("View All Items"), //Go to InventoryScreen
           ),
