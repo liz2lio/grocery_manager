@@ -38,7 +38,11 @@ class GroceryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp( title: 'Grocery Manager',
-    home: const MainScreen(),
+    initialRoute: '/',
+    //home: const MainScreen(),
+    getPages: [
+      GetPage(name: '/', page:() => MainScreen()),
+    ]
     );
  }
 }   

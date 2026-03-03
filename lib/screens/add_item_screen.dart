@@ -15,8 +15,6 @@ class AddItemScreen extends StatefulWidget{
 
 class _AddItemScreenState extends State<AddItemScreen> {
 
-  //static 
-  //final _formKey = GlobalKey<FormBuilderState>();
   final GlobalKey<FormBuilderState> _formKey = GlobalKey<FormBuilderState>();
   final GroceryController groceryController = Get.find<GroceryController>();
 
@@ -44,14 +42,20 @@ class _AddItemScreenState extends State<AddItemScreen> {
       return Scaffold(
         appBar: AppBar(
           title: Text('Add New Item'),
+          centerTitle: true,
       ),
-      body: Padding(padding: EdgeInsetsGeometry.all(20),
+      body: Padding(padding: EdgeInsetsGeometry.all(20),      
       child: FormBuilder(
         key: _formKey, 
         child: Column(
           children: [
         // item name
-            FormBuilderTextField(name: 'name',
+        
+        const SizedBox(height:40),
+        Center(
+          child: SizedBox(
+            width: 300,
+            child:FormBuilderTextField(name: 'name',
             decoration: const InputDecoration(
               labelText: 'Item Name',
               border: OutlineInputBorder(),
@@ -59,24 +63,33 @@ class _AddItemScreenState extends State<AddItemScreen> {
             validator: FormBuilderValidators.compose([
               FormBuilderValidators.required(errorText: 'Enter item name'),
             ]),
+            ),
           ),
+          ),
+
           const SizedBox(height:20),
 
           //quantity
-          FormBuilderTextField(
-            name: 'quantity',
-            decoration: InputDecoration(
-              labelText: 'Quantity',
-              border: OutlineInputBorder(),
-          ),
-            keyboardType: TextInputType.number,
+        Center(
+          child: SizedBox(
+            width: 300,
+            child: FormBuilderTextField(
+              name: 'quantity',
+              decoration: InputDecoration(
+                labelText: 'Quantity',
+                border: OutlineInputBorder(),
+              ),
+            
+          
+              keyboardType: TextInputType.number,
             //autovalidateMode: AutovalidateMode.onUserInteraction,
-            validator: FormBuilderValidators.compose([
+              validator: FormBuilderValidators.compose([
               FormBuilderValidators.required(errorText: 'Enter a quantity'),
               FormBuilderValidators.numeric(errorText: 'Quantity must be a number'),
-          ]),
+              ]),
+           ),)
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 40),
 
         // Save Button
         ElevatedButton(
