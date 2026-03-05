@@ -20,8 +20,8 @@ class StatsScreen extends StatelessWidget {
       body: Obx(() {
         // Calculate items
         int totalItems = groceryController.groceryList.length;
-        int totalQuantity = groceryController.groceryList.fold(
-            0, (sum, item) => sum + (item.quantity as int));
+    int totalQuantity = groceryController.groceryList.fold(
+      0, (sum, item) => sum + item.quantity);
 
         return Center(
           child: ConstrainedBox(
@@ -33,16 +33,16 @@ class StatsScreen extends StatelessWidget {
                 ? Row( 
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      _StatsCard("Total Unique Items", totalItems.toString(), Colors.blue),
-                      _StatsCard("Total Stock Quantity", totalQuantity.toString(), Colors.green),
+                      _statsCard("Total Unique Items", totalItems.toString(), Colors.blue),
+                      _statsCard("Total Stock Quantity", totalQuantity.toString(), Colors.green),
                     ],
                   )
                 : Column( // Mobile Layout
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _StatsCard("Total Unique Items", totalItems.toString(), Colors.blue),
+                      _statsCard("Total Unique Items", totalItems.toString(), Colors.blue),
                       const SizedBox(height: 20),
-                      _StatsCard("Total Stock Quantity", totalQuantity.toString(), Colors.green),
+                      _statsCard("Total Stock Quantity", totalQuantity.toString(), Colors.green),
                     ],
                   ),
             ),
@@ -54,12 +54,12 @@ class StatsScreen extends StatelessWidget {
 
 
   // card widget
-  Widget _StatsCard(String title, String value, Color color) {
+  Widget _statsCard(String title, String value, Color color) {
     return Container(
       width: 280,
       padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withAlpha((0.1 * 255).round()),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: color, width: 2),
       ),

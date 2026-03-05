@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-//import 'package:grocery_manager/controllers/grocery_controller.dart';
 import 'screens/home_screen.dart';
 import 'controllers/grocery_controller.dart';
-//import 'screens/home_screen.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 
 
 Future <void> main() async {
+    WidgetsFlutterBinding.ensureInitialized();
     await Hive.initFlutter();
     await Hive.openBox("storage");
     Get.put(GroceryController());
@@ -21,16 +20,6 @@ Future <void> main() async {
 
 }
 
-//void main()  {
-//  Get.put(AddItemController());
-//  runApp(const GroceryApp());
-//}
-/*
-void main()  {
-  //await GetStorage.init();
-  runApp(const GroceryApp());
-}
-*/
 
 class GroceryApp extends StatelessWidget {
   const GroceryApp({super.key});
@@ -56,8 +45,7 @@ class MainScreen extends StatelessWidget {
       title: const Text(
         'A+ Grocery Manager'),
       centerTitle: true,
-      //backgroundColor: Colors.green,
-      //elevation: 2,
+
        ),
        body: const HomeScreen(),
        );
