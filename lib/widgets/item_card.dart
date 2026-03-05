@@ -19,6 +19,7 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final GroceryController groceryController = Get.find<GroceryController>();
 
+
     return Card(
       elevation: 3,
       margin: const EdgeInsets.symmetric(horizontal:12, vertical:6),
@@ -36,7 +37,7 @@ class ItemCard extends StatelessWidget {
                   Text(
                     item.name, 
                     style: TextStyle(
-                      fontSize: 20, 
+                      fontSize: 25, 
                       fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
@@ -44,14 +45,31 @@ class ItemCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 
-                const SizedBox(height:4),
+                const SizedBox(height:6),
                 
-                // quantity
-                Text(
-                  'Qty: ${item.quantity}', 
-                  style: TextStyle(
-                    fontSize:16, 
-                    fontWeight: FontWeight.w500)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      iconSize: 18,
+                      icon: const Icon(Icons.remove_circle_outline),
+                      onPressed: () => groceryController.decrementQuantity(index),
+                    ),
+                    
+                    // Obx listens to the specific item index for changes
+                    Obx(() => Text(
+                      '${groceryController.groceryList[index].quantity}',
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                    )),
+                    
+                    IconButton(
+                      iconSize: 18,
+                      icon: const Icon(Icons.add_circle_outline),
+                      onPressed: () => groceryController.incrementQuantity(index),
+                    ),
+                  ],
+                ),
+
               ],),),),
 
             //delete item
@@ -59,8 +77,6 @@ class ItemCard extends StatelessWidget {
                 bottom: 4,
                 right: 4,
                 child: IconButton(
-                  //constraints: const BoxConstraints(),
-                  //padding: EdgeInsets.zero,
                   icon: const Icon(Icons.delete, color: Colors.redAccent, size:20),
                   onPressed:() {
                     groceryController.removeItem(index);},
@@ -69,5 +85,5 @@ class ItemCard extends StatelessWidget {
               ],
             ),
     );
-   }
   }
+}

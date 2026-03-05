@@ -40,4 +40,20 @@ class GroceryController extends GetxController{
     groceryList.removeAt(index);
     save();
   }
+
+
+  void incrementQuantity(int index) {
+    groceryList[index].quantity++;
+    groceryList.refresh(); // Tells Obx to rebuild the UI
+    save();       // Persist the change
+}
+
+  void decrementQuantity(int index) {
+    if (groceryList[index].quantity > 0) {
+      groceryList[index].quantity--;
+      groceryList.refresh(); 
+      save();
+  }
+}
+
 }
