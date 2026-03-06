@@ -1,0 +1,7 @@
+[build]
+  command = "bash ./netlify_build.sh"
+  publish = "build/web"
+
+[context.production.environment]
+# Optionally pin the Flutter channel used by the script. You can also set this in the script.
+FLUTTER_CHANNEL = "stable"
