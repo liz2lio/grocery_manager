@@ -10,6 +10,7 @@ Future <void> main() async {
     await Hive.initFlutter();
     await Hive.openBox("storage");
     Get.put(GroceryController());
+
     
     runApp(
       GetMaterialApp(

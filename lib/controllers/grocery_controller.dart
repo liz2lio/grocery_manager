@@ -17,7 +17,6 @@ class GroceryController extends GetxController{
   void loadData() {
     var storedItems = storage.get('items');
     if (storedItems != null) {
-      // Convert the stored dynamic list back into GroceryItem objects
       groceryList.value = List<GroceryItem>.from(
         storedItems.map((item) => GroceryItem.fromJson(Map<String, dynamic>.from(item)))
       );
@@ -26,7 +25,6 @@ class GroceryController extends GetxController{
 
   // save
   void save() {
-    // Convert our objects into a list of JSON maps for Hive storage
     List<Map<String, dynamic>> jsonList = groceryList.map((item) => item.toJson()).toList();
     storage.put('items', jsonList);
   }
@@ -34,6 +32,7 @@ class GroceryController extends GetxController{
   void addItem(GroceryItem item) {
     groceryList.add(item);
     save();
+
 }
 
   void removeItem(int index) {
@@ -44,8 +43,8 @@ class GroceryController extends GetxController{
 
   void incrementQuantity(int index) {
     groceryList[index].quantity++;
-    groceryList.refresh(); // Tells Obx to rebuild the UI
-    save();       // Persist the change
+    groceryList.refresh(); 
+    save();    
 }
 
   void decrementQuantity(int index) {
@@ -55,5 +54,5 @@ class GroceryController extends GetxController{
       save();
   }
 }
-
 }
+
