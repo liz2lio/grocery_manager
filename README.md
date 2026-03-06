@@ -1,16 +1,12 @@
-# grocery_manager
+# A+ Grocery Manager App
 
-A new Flutter project.
+Go To: https://a-grocery-manager.netlify.app
 
 ## Getting Started
+Users can manage their inventory by adding items and specifying their quantities, 
+viewing the list of existing items, deleting items, and adjusting quantities using the + or – buttons. 
+In addition, a Statistics screen displays the number of unique items as well as the total number of items currently in the inventory.
 
-This project is a starting point for a Flutter application.
+Enjoy!
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
